@@ -1,6 +1,11 @@
+import 'dart:convert';
+
+import 'package:das_mobile/carrinho/cart-list.dart';
 import 'package:flutter/material.dart';
 
 class NavDrawer extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -38,7 +43,12 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.shopping_cart),
             title: Text('Carrinhos'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CartList()),
+                )
+            }
           ),
           ListTile(
             leading: Icon(Icons.inbox),
