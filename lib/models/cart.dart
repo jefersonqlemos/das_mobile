@@ -15,7 +15,7 @@ class Cart{
       required this.cpf
   });
 
-  Cart.fromMap(Map<dynamic, dynamic> data)
+  Cart.fromJson(Map<dynamic, dynamic> data)
       : id = data['id'],
         client_id = data['client_id'],
         total_value = data['total_value'],
@@ -23,7 +23,7 @@ class Cart{
         last_name = data['last_name'],
         cpf = data['cpf'];
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
       'client_id': client_id,
