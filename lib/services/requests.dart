@@ -7,4 +7,8 @@ class Requests {
   static get(String element){
     return http.get(Uri.parse(url + element));
   }
+
+  static delete(String element){
+    return http.delete(Uri.parse(url + element));
+  }
 }
