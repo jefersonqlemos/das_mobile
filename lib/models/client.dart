@@ -1,5 +1,5 @@
 class Client {
-  final int? id;
+  late final int? id;
   final String name;
 
   Client({this.id, required this.name});

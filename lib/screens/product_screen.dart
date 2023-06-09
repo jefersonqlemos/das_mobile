@@ -60,13 +60,14 @@ class _ProductScreenState extends State<ProductScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => AddProductScreen()),
-          ).then((addedProduct) {
-            if (addedProduct != null) {
+          ).then((added) {
+            if (added != null) {
               setState(() async {
                 final int maxId = await productService.getMaxId();
-                await productService.add(Product(id: maxId, name: addedProduct['name'], value: addedProduct['value']));
-                List<Product> fetchedData = (await productService.getAll())!;
-                products = fetchedData;
+                var addedProduct = added as Product;
+                var addProduct = Product(id:maxId, name: addedProduct.name, value: addedProduct.value);
+                await productService.add(addProduct);
+                loadData();
               });
             }
           });

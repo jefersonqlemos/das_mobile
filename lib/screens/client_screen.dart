@@ -59,13 +59,14 @@ class _ClientScreenState extends State<ClientScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => AddClientScreen()),
-          ).then((addedClient) {
-            if (addedClient != null) {
+          ).then((added) {
+            if (added != null) {
               setState(() async {
                 final int maxId = await clientService.getMaxId();
-                await clientService.add(Client(id: maxId, name: addedClient['name']));
-                List<Client> fetchedData = (await clientService.getAll())!;
-                clients = fetchedData;
+                var addedClient = added as Client;
+                var addClient = Client(id:maxId, name: addedClient.name);
+                await clientService.add(addClient);
+                loadData();
               });
             }
           });

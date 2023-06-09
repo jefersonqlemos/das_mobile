@@ -25,7 +25,7 @@ class ClientService {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
         final List<dynamic> jsonData = json.decode(response.body);
-        var maxItem= jsonData.map((item) => parse(item)).toList().first;
+        var maxItem = jsonData.map((item) => parse(item)).toList().first;
         return maxItem.id! + 1;
       } else {
         throw Exception('Failed to load clients');

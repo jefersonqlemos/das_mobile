@@ -9,6 +9,11 @@
       "id": 3,
       "name": "Matheus",
       "value": 12.99
+    },
+    {
+      "id": 4,
+      "name": "teset",
+      "value": 1.99
     }
   ],
   "clients": [
@@ -33,6 +38,14 @@
     {
       "id": 5,
       "name": "test 5"
+    },
+    {
+      "id": 6,
+      "name": "teste 6"
+    },
+    {
+      "id": 7,
+      "name": "teste 7"
     }
   ],
   "carts": [],
