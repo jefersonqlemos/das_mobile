@@ -1,3 +1,5 @@
+import 'package:das_mobile/screens/client_screen.dart';
+import 'package:das_mobile/screens/product_screen.dart';
 import 'package:flutter/material.dart';
 
 class NavDrawer extends StatelessWidget {
@@ -28,12 +30,24 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.supervisor_account),
             title: Text('Clientes'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () {
+              Navigator.pop(context); // Close the drawer
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ClientScreen()),
+              );
+            },
           ),
           ListTile(
             leading: Icon(Icons.view_list),
             title: Text('Produtos'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () {
+              Navigator.pop(context); // Close the drawer
+              Navigator.push(
+                context,
+                  MaterialPageRoute(builder: (context) => ProductScreen()),
+              );
+            },
           ),
           ListTile(
             leading: Icon(Icons.shopping_cart),
