@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:das_mobile/nav-drawer.dart';
+import 'package:das_mobile/nav_drawer.dart';
 
 import 'config.dart';
 
@@ -41,9 +41,9 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       drawer: NavDrawer(),
       appBar: AppBar(
-        title: Text('Menu'),
+        title: const Text('Menu'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Home',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue)
         ),

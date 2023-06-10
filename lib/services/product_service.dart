@@ -76,12 +76,12 @@ class ProductService {
 
   Future<void> edit(Product product) async {
     try {
-      final response = await http.post(
+      final response = await http.put(
         Uri.parse('$apiUrl/${product.id}'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode(product.toJson()),
       );
-      if (response.statusCode != 201) {
+      if (response.statusCode != 200) {
         throw Exception('Failed to add product');
       }
     } catch (e) {
@@ -92,7 +92,7 @@ class ProductService {
   Future<void> delete(int id) async {
     try {
       final response = await http.delete(Uri.parse('$apiUrl/$id'));
-      if (response.statusCode != 204) {
+      if (response.statusCode != 200) {
         throw Exception('Failed to delete product');
       }
     } catch (e) {

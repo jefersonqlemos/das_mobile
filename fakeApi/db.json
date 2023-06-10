@@ -2,13 +2,8 @@
   "products": [
     {
       "id": 2,
-      "name": "Updated Product",
-      "value": 20
-    },
-    {
-      "id": 3,
-      "name": "Matheus",
-      "value": 12.99
+      "name": "Updated Product edited",
+      "value": 20.12
     },
     {
       "id": 4,
@@ -17,14 +12,6 @@
     }
   ],
   "clients": [
-    {
-      "id": 1,
-      "name": "client one edited again"
-    },
-    {
-      "id": 2,
-      "name": "wrrq"
-    },
     {
       "id": 3,
       "name": "askfdjsdfh"
@@ -40,10 +27,6 @@
     {
       "id": 6,
       "name": "teste 6"
-    },
-    {
-      "id": 7,
-      "name": "teste 7"
     }
   ],
   "carts": [],

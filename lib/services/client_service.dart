@@ -93,7 +93,7 @@ class ClientService {
   Future<void> delete(int id) async {
     try {
       final response = await http.delete(Uri.parse('$apiUrl/$id'));
-      if (response.statusCode != 204) {
+      if (response.statusCode != 200) {
         throw Exception('Failed to delete client');
       }
     } catch (e) {

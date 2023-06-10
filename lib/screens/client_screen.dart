@@ -42,12 +42,9 @@ class _ClientScreenState extends State<ClientScreen> {
               title: Text(client.name),
               trailing: IconButton(
                 icon: const Icon(Icons.delete),
-                onPressed: () {
-                  setState(() async {
-                    await clientService.delete(client.id!);
-                    List<Client> fetchedData = (await clientService.getAll())!;
-                    clients = fetchedData;
-                  });
+                onPressed: () async {
+                  await clientService.delete(client.id!);
+                  loadData();
                 },
               ),
               onTap: () {
@@ -56,12 +53,10 @@ class _ClientScreenState extends State<ClientScreen> {
                   MaterialPageRoute(
                     builder: (context) => EditClientScreen(client: client),
                   ),
-                ).then((updatedClient) {
+                ).then((updatedClient) async {
                   if (updatedClient != null) {
-                    setState(() async {
-                      await clientService.edit(updatedClient);
-                      loadData();
-                    });
+                    await clientService.edit(updatedClient);
+                    loadData();
                   }
                 });
               },
@@ -74,15 +69,13 @@ class _ClientScreenState extends State<ClientScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => AddClientScreen()),
-          ).then((added) {
+          ).then((added) async {
             if (added != null) {
-              setState(() async {
-                final int maxId = await clientService.getMaxId();
-                var addedClient = added as Client;
-                var addClient = Client(id: maxId, name: addedClient.name);
-                await clientService.add(addClient);
-                loadData();
-              });
+              final int maxId = await clientService.getMaxId();
+              var addedClient = added as Client;
+              var addClient = Client(id: maxId, name: addedClient.name);
+              await clientService.add(addClient);
+              loadData();
             }
           });
         },

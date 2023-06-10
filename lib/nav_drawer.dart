@@ -9,7 +9,7 @@ class NavDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
+          const DrawerHeader(
             child: Text(
               'Menu',
               style: TextStyle(color: Colors.white, fontSize: 25),
@@ -23,13 +23,13 @@ class NavDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Home'),
+            leading: const Icon(Icons.home),
+            title: const Text('Home'),
             onTap: () => {},
           ),
           ListTile(
-            leading: Icon(Icons.supervisor_account),
-            title: Text('Clientes'),
+            leading: const Icon(Icons.supervisor_account),
+            title: const Text('Clientes'),
             onTap: () {
               Navigator.pop(context); // Close the drawer
               Navigator.push(
@@ -39,8 +39,8 @@ class NavDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.view_list),
-            title: Text('Produtos'),
+            leading: const Icon(Icons.view_list),
+            title: const Text('Produtos'),
             onTap: () {
               Navigator.pop(context); // Close the drawer
               Navigator.push(
@@ -50,13 +50,13 @@ class NavDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.shopping_cart),
-            title: Text('Carrinhos'),
+            leading: const Icon(Icons.shopping_cart),
+            title: const Text('Carrinhos'),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.inbox),
-            title: Text('Pedidos'),
+            leading: const Icon(Icons.inbox),
+            title: const Text('Pedidos'),
             onTap: () => {Navigator.of(context).pop()},
           ),
         ],
