@@ -77,13 +77,13 @@ class ClientService {
 
   Future<void> edit(Client client) async {
     try {
-      final response = await http.post(
+      final response = await http.put(
         Uri.parse('$apiUrl/${client.id}'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode(client.toJson()),
       );
-      if (response.statusCode != 201) {
-        throw Exception('Failed to add client');
+      if (response.statusCode != 200) {
+        throw Exception('Failed to edit the client');
       }
     } catch (e) {
       throw Exception('Failed to connect to the server');

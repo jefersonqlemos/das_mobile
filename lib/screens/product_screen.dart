@@ -32,7 +32,7 @@ class _ProductScreenState extends State<ProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Products'),
+        title: const Text('Products'),
       ),
       body: ListView.builder(
         itemCount: products.length,
@@ -42,12 +42,11 @@ class _ProductScreenState extends State<ProductScreen> {
             title: Text(product.name),
             subtitle: Text('Value: \$${product.value.toStringAsFixed(2)}'),
             trailing: IconButton(
-              icon: Icon(Icons.delete),
+              icon: const Icon(Icons.delete),
               onPressed: () {
                 setState(() async {
                   productService.delete(product.id!);
-                  List<Product> fetchedData = (await productService.getAll())!;
-                  products = fetchedData;
+                  loadData();
                 });
               },
             ),
@@ -72,7 +71,7 @@ class _ProductScreenState extends State<ProductScreen> {
             }
           });
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -85,9 +84,9 @@ class AddProductScreen extends StatefulWidget {
 
 class _AddProductScreenState extends State<AddProductScreen> {
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _idController = TextEditingController();
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _valueController = TextEditingController();
+  final TextEditingController _idController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _valueController = TextEditingController();
 
   @override
   void dispose() {
@@ -101,7 +100,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Product'),
+        title: const Text('Add Product'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -112,7 +111,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
             children: <Widget>[
               TextFormField(
                 controller: _nameController,
-                decoration: InputDecoration(labelText: 'Name'),
+                decoration: const InputDecoration(labelText: 'Name'),
                 validator: (value) {
                   if (value?.isEmpty ?? true) {
                     return 'Please enter the product name';
@@ -122,7 +121,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
               ),
               TextFormField(
                 controller: _valueController,
-                decoration: InputDecoration(labelText: 'Value'),
+                decoration: const InputDecoration(labelText: 'Value'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value?.isEmpty ?? true) {
@@ -146,7 +145,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       Navigator.pop(context, newProduct);
                     }
                   },
-                  child: Text('Add'),
+                  child: const Text('Add'),
                 ),
               ),
             ],
