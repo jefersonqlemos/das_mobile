@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import '../models/cart-product.dart';
@@ -33,8 +34,24 @@ class _MyAppState extends State {
     });
   }
 
-  _updateCartProduct(String id, int index) {
+  _updateCartProduct(String id, int index, String quantity) {
 
+    cartProducts[index].quantity = int.parse(quantity);
+
+    CartRepository.updateCartProducts(id, cartProducts).then((response) {
+      setState(() {
+        if(response.statusCode == 200){
+          Fluttertoast.showToast(
+              msg: response.body.toString(),
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIosWeb: 1,
+              textColor: Colors.white,
+              fontSize: 16.0
+          );
+        }
+      });
+    });
   }
 
   @override
@@ -70,15 +87,20 @@ class _MyAppState extends State {
                           controller: TextEditingController()..text = item.quantity.toString(),
                           maxLength: 3,
                           textAlign: TextAlign.center,
+                          onChanged: (text) {
+                            if(!(text.toString().isEmpty)){
+                              _updateCartProduct(item.cart_id.toString(), index, text);
+                            }
+                          },
                           decoration: InputDecoration(
                               hintText: "0",
                               counterText: "",
-                              suffixIcon: IconButton(
+                              /*suffixIcon: IconButton(
                                   icon:Icon(Icons.refresh),
                                   onPressed: () {
-                                    _updateCartProduct(item.id.toString(), index);
+
                                   }
-                              )
+                              )*/
                           ),
                           keyboardType: TextInputType.number,
                         ),
