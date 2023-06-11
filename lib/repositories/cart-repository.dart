@@ -13,6 +13,10 @@ class CartRepository {
       return Requests.get('carts');
   }
 
+  static Future getCartProducts(String id) {
+    return Requests.get('carts/'+id);
+  }
+
   static Future deleteCart(String id) {
     return Requests.delete('carts/'+id);
   }

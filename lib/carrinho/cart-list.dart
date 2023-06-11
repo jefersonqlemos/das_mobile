@@ -5,6 +5,8 @@ import 'package:das_mobile/repositories/cart-repository.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import 'cart-products-list.dart';
+
 class CartList extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
@@ -21,6 +23,14 @@ class _MyAppState extends State {
         carts = list.map((model) => Cart.fromJson(model)).toList();
       });
     });
+  }
+
+  _cartProducts(String id, int index){
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => CartProductsList(cart_id: id),
+        ));
   }
 
   _deleteCart(String id, int index){
@@ -63,13 +73,23 @@ class _MyAppState extends State {
                     final item = carts[index];
                     return ListTile(
                           title: Text(item.name.toString()),
-                          subtitle: Text(NumberFormat("#,##0.00", "en_US").format(int.parse(item.total_value.toString()))),
-                          trailing: IconButton(
-                            icon:Icon(Icons.delete),
-                            onPressed: () {
-                              _deleteCart(item.id.toString(), index);
-                            }
-                          )
+                          subtitle: Text("Total: RS " + NumberFormat("###.00", "en_US").format(int.parse(item.total_value.toString()))),
+                          trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                    icon:Icon(Icons.remove_red_eye),
+                                    onPressed: () {
+                                      _cartProducts(item.id.toString(), index);
+                                    }
+                                ),
+                                IconButton(
+                                    icon:Icon(Icons.delete),
+                                    onPressed: () {
+                                      _deleteCart(item.id.toString(), index);
+                                    }
+                                )
+                              ])
                         );
                   }
                   ),
