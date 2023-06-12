@@ -6,6 +6,8 @@ import 'config.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Config.initialize();
+
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
