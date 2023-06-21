@@ -41,9 +41,9 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       drawer: NavDrawer(),
       appBar: AppBar(
-        title: const Text('Menu'),
+        title: Text('Menu'),
       ),
-      body: const Center(
+      body: Center(
         child: Text('Home',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue)
         ),
