@@ -50,14 +50,9 @@ class NavDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-              leading: Icon(Icons.shopping_cart),
-              title: Text('Carrinhos'),
-              onTap: () => {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CartList()),
-                )
-              }
+            leading: const Icon(Icons.shopping_cart),
+            title: const Text('Carrinhos'),
+            onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
             leading: const Icon(Icons.inbox),
