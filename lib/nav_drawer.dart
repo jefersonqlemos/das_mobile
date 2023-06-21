@@ -1,5 +1,6 @@
 import 'package:das_mobile/screens/client_screen.dart';
 import 'package:das_mobile/screens/product_screen.dart';
+import 'package:das_mobile/carrinho/cart-list.dart';
 import 'package:flutter/material.dart';
 
 class NavDrawer extends StatelessWidget {
