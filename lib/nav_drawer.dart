@@ -15,8 +15,8 @@ class NavDrawer extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
             decoration: BoxDecoration(
-                color: Colors.blue,
-                /*image: DecorationImage(
+              color: Colors.blue,
+              /*image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage('assets/images/cover.jpg')
                 )*/
@@ -34,7 +34,7 @@ class NavDrawer extends StatelessWidget {
               Navigator.pop(context); // Close the drawer
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ClientScreen()),
+                  MaterialPageRoute(builder: (context) => ClientScreen()),
               );
             },
           ),
