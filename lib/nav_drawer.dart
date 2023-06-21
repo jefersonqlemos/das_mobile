@@ -34,7 +34,7 @@ class NavDrawer extends StatelessWidget {
               Navigator.pop(context); // Close the drawer
               Navigator.push(
                 context,
-                  MaterialPageRoute(builder: (context) => ClientScreen()),
+                MaterialPageRoute(builder: (context) => ClientScreen()),
               );
             },
           ),
@@ -45,7 +45,7 @@ class NavDrawer extends StatelessWidget {
               Navigator.pop(context); // Close the drawer
               Navigator.push(
                 context,
-                  MaterialPageRoute(builder: (context) => ProductScreen()),
+                MaterialPageRoute(builder: (context) => ProductScreen()),
               );
             },
           ),
