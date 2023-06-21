@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:das_mobile/nav_drawer.dart';
 
-import 'config.dart';
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Config.initialize();
+void main() {
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
